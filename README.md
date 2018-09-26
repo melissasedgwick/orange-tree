@@ -7,8 +7,9 @@ A simple function that creates a new instance of the OrangeTree class and allows
 From command line (terminal):
 
 `git clone https://github.com/melissasedgwick/orange-tree.git`
+
 `ruby orange_tree.rb`
 
 ## How to use
 
-Type in your actions and hit return. 
+Type in your actions and hit return.
