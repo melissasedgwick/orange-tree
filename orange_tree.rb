@@ -8,6 +8,18 @@ class OrangeTree
 
   def one_year_passes
     @years_old += 1
+    case @years_old
+    when @years_old > 15
+      puts "Your orange tree has lived a good life, but this life has now come to an end."
+      exit
+    when 3..15
+      puts "Your orange tree has aged a year and grown bigger!"
+      puts "It has grown new oranges!"
+      @number_of_oranges += 5
+    when 0..2
+      puts "Your orange tree has aged a year and grown bigger!"
+      puts "It's not yet old enough to grow oranges, though."
+    end
     @height += 2
   end
 
@@ -22,10 +34,11 @@ class OrangeTree
   end
 
   def pick_orange
+    tastes = ["good", "sweet", "sour", "bad", "like the best orange you've ever had"]
     if @number_of_oranges == 0
       puts "Unfortunately, there are no oranges for you to pick!"
     else
-      puts "You pick an orange and eat it. It tastes good!"
+      puts "You pick an orange and eat it. It tastes #{tastes.sample}!"
       @number_of_oranges -= 1
     end
   end
@@ -33,4 +46,9 @@ class OrangeTree
 end
 
 tree = OrangeTree.new
-puts tree.count_oranges
+tree.count_oranges
+tree.one_year_passes
+tree.one_year_passes
+tree.one_year_passes
+tree.count_oranges
+tree.pick_orange
