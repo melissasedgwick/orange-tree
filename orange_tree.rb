@@ -4,18 +4,20 @@ class OrangeTree
     @years_old = 0
     @height = 0
     @number_of_oranges = 0
+    $status = "alive"
+    puts "You've planted a baby orange tree!"
   end
 
   def one_year_passes
     @years_old += 1
     case @years_old
-    when @years_old > 15
+    when 10
       puts "Your orange tree has lived a good life, but this life has now come to an end."
-      exit
-    when 3..15
+      $status = "dead"
+    when 3..9
       puts "Your orange tree has aged a year and grown bigger!"
       puts "It has grown new oranges!"
-      @number_of_oranges += 5
+      @number_of_oranges += 4
     when 0..2
       puts "Your orange tree has aged a year and grown bigger!"
       puts "It's not yet old enough to grow oranges, though."
@@ -45,10 +47,31 @@ class OrangeTree
 
 end
 
-tree = OrangeTree.new
-tree.count_oranges
-tree.one_year_passes
-tree.one_year_passes
-tree.one_year_passes
-tree.count_oranges
-tree.pick_orange
+def turn
+  puts "What would you like to do?"
+  @action = gets.chomp
+end
+
+def action
+  case @action
+  when "Pass year"
+    @tree.one_year_passes
+  when "Count oranges"
+    @tree.count_oranges
+  when "Pick orange"
+    @tree.pick_orange
+  else
+    puts "I don't understand, please try again."
+  end
+end
+
+def start
+  @tree = OrangeTree.new
+  while $status == "alive" do
+    turn
+    exit if @action == "Exit"
+    action
+  end
+end
+
+start
