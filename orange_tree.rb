@@ -11,13 +11,17 @@ class OrangeTree
   def one_year_passes
     @years_old += 1
     case @years_old
-    when 10
+    when 7
       puts "Your orange tree has lived a good life, but this life has now come to an end."
       $status = "dead"
-    when 3..9
+    when 5..6
       puts "Your orange tree has aged a year and grown bigger!"
-      puts "It has grown new oranges!"
+      puts "It has grown a lot of new oranges!"
       @number_of_oranges += 4
+    when 3..4
+      puts "Your orange tree has aged a year and grown bigger!"
+      puts "It has grown a few new oranges!"
+      @number_of_oranges += 2
     when 0..2
       puts "Your orange tree has aged a year and grown bigger!"
       puts "It's not yet old enough to grow oranges, though."
