@@ -49,7 +49,7 @@ end
 
 def turn
   puts "What would you like to do?"
-  @action = gets.chomp
+  @action = gets.chomp.capitalize
 end
 
 def action
